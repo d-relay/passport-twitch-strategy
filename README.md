@@ -1,5 +1,5 @@
 # passport-twitch
-[![Code Climate](https://codeclimate.com/github/d-relay/passport-twitch/badges/gpa.svg)](https://codeclimate.com/github/Schmoopiie/passport-twitch)
+[![Code Climate](https://codeclimate.com/github/d-relay/passport-twitch/badges/gpa.svg)](https://codeclimate.com/github/d-relay/passport-twitch)
 
 Twitch is a trademark or registered trademark of Twitch Interactive, Inc. in the U.S. and/or other countries. "passport-twitch" is not operated by, sponsored by, or affiliated with Twitch Interactive, Inc. in any way.
 

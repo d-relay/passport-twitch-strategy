@@ -1,0 +1,42 @@
+{
+  "name": "passport-twitch",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "description": "Twitch (OAuth) authentication strategies for Passport. v5",
+  "keywords": [
+    "passport",
+    "twitch",
+    "twitch-v5",
+    "auth",
+    "authn",
+    "authentication",
+    "identity",
+    "oauth",
+    "oauth2",
+    "strategy"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/relay/passport-twitch.git"
+  },
+  "bugs": {
+    "url": "http://github.com/relay/passport-twitch/issues"
+  },
+  "author": {
+    "name": "Tymchenko",
+    "email": "andrijmessia@gmail.com"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "dependencies": {
+    "node-fetch": "^2.6.0",
+    "passport-oauth2": "^1.5.0"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "^2.5.7"
+  }
+}

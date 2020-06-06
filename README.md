@@ -11,7 +11,8 @@ unobtrusively integrated into any application or framework that supports
 
 ## Install
 ```bash
-$ npm install passport-twitch
+$ npm install d-relay/passport-twitch
+$ yarn add d-relay/passport-twitch
 ```
 ## Usage of OAuth 2.0
 

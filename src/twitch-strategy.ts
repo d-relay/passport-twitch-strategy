@@ -1,7 +1,7 @@
 import util from "util";
 import OAuth2Strategy from "passport-oauth2";
-import { InternalOAuthError } from "passport-oauth2";
-import fetch from "node-fetch";
+// import { InternalOAuthError } from "passport-oauth2";
+// import fetch from "node-fetch";
 
 interface Options {
     clientID: string;
@@ -52,6 +52,8 @@ export function Strategy(options: Options, verify: Function) {
     }
     this.clientID = options.clientID;
     OAuth2Strategy.call(this, params, verify);
+    this._oauth2.setAuthMethod("Bearer");
+    this._oauth2.useAuthorizationHeaderforGET(true);
 }
 
 util.inherits(Strategy, OAuth2Strategy);
@@ -70,24 +72,34 @@ util.inherits(Strategy, OAuth2Strategy);
  * @param {Function} done
  * @api protected
  */
-Strategy.prototype.userProfile = async function (accessToken: string, done: Function): Promise<Function> {
-    try {
-        const response = await fetch('https://api.twitch.tv/helix/users', {
-            method: 'GET',
-            headers: {
-                'Client-ID': this.clientID,
-                'Accept': 'application/vnd.twitchtv.v5+json',
-                'Authorization': 'Bearer ' + accessToken
-            }
-        })
+Strategy.prototype.userProfile = async function (accessToken: string, done: Function): Promise<any> {
+    // try {
+    //     const response = await fetch('https://api.twitch.tv/helix/users', {
+    //         method: 'GET',
+    //         headers: {
+    //             'Client-ID': this.clientID,
+    //             'Accept': 'application/vnd.twitchtv.v5+json',
+    //             'Authorization': 'Bearer ' + accessToken
+    //         }
+    //     })
 
-        if (!response.ok) return done(new InternalOAuthError("failed to fetch user profile", response.json()));
+    //     if (!response.ok) return done(new InternalOAuthError("failed to fetch user profile", response.json()));
 
-        const body = (await response.json()).data[0];
-        return done(null, body);
-    } catch (error) {
-        return done(error, null);
-    }
+    //     const body = (await response.json()).data[0];
+    //     return done(null, body);
+    // } catch (error) {
+    //     return done(error, null);
+    // }
+    this._oauth2.get("https://api.twitch.tv/helix/users", accessToken, function (err, body: string, res) {
+        try {
+            if (err) { return done(new OAuth2Strategy.InternalOAuthError("failed to fetch user profile", err)); }
+            const _body = JSON.parse(body);
+            const profile = _body.data[0];
+            done(null, profile);
+        } catch (e) {
+            done(e);
+        }
+    });
 }
 
 /**

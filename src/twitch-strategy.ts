@@ -1,7 +1,6 @@
 import util from "util";
 import OAuth2Strategy from "passport-oauth2";
-// import { InternalOAuthError } from "passport-oauth2";
-// import fetch from "node-fetch";
+import fetch from "node-fetch";
 
 interface Options {
     clientID: string;
@@ -72,33 +71,22 @@ util.inherits(Strategy, OAuth2Strategy);
  * @param {Function} done
  * @api protected
  */
-Strategy.prototype.userProfile = async function (accessToken: string, done: Function): Promise<any> {
-    // try {
-    //     const response = await fetch('https://api.twitch.tv/helix/users', {
-    //         method: 'GET',
-    //         headers: {
-    //             'Client-ID': this.clientID,
-    //             'Accept': 'application/vnd.twitchtv.v5+json',
-    //             'Authorization': 'Bearer ' + accessToken
-    //         }
-    //     })
-
-    //     if (!response.ok) return done(new InternalOAuthError("failed to fetch user profile", response.json()));
-
-    //     const body = (await response.json()).data[0];
-    //     return done(null, body);
-    // } catch (error) {
-    //     return done(error, null);
-    // }
-    this._oauth2.get("https://api.twitch.tv/helix/users", accessToken, function (err, body: string, res) {
-        try {
-            if (err) { return done(new OAuth2Strategy.InternalOAuthError("failed to fetch user profile", err)); }
-            const _body = JSON.parse(body);
-            const profile = _body.data[0];
-            done(null, profile);
-        } catch (e) {
-            done(e);
+Strategy.prototype.userProfile = function (accessToken: string, done: Function): Promise<void> {
+    return fetch('https://api.twitch.tv/helix/users', {
+        method: 'GET',
+        headers: {
+            'Client-ID': this.clientID,
+            'Accept': 'application/vnd.twitchtv.v5+json',
+            'Authorization': 'Bearer ' + accessToken
         }
+    }).then(response => {
+        if (!response.ok) return new OAuth2Strategy.InternalOAuthError("failed to fetch user profile");
+        else return response.json()
+    }).then(json => {
+        const body = json.data[0];
+        done(null, body);
+    }).catch(error => {
+        done(error, null);
     });
 }
 

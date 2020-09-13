@@ -1,5 +1,5 @@
 {
-  "name": "passport-twitch",
+  "name": "passport-twitch-v5",
   "version": "1.1.0",
   "main": "./dist/index.js",
   "description": "Twitch (OAuth) authentication strategies for Passport. v5",

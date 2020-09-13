@@ -30,10 +30,11 @@ var passport       = require("passport");
 var twitchStrategy = require("passport-twitch").Strategy;
 
 passport.use('twitch', new twitchStrategy({
-    clientID: TWITCH_CLIENT_ID,
-    clientSecret: TWITCH_CLIENT_SECRET,
-    callbackURL: "http://127.0.0.1:3000/auth/twitch/callback",
-    scope: "user_read"
+    clientID: process.env.TWITCH_CLIENT_ID,
+    clientSecret: process.env.TWITCH_CLIENT_SECRET,
+    callbackURL: process.env.REDIRECT_URL,
+    scope: "user:read:email",
+    state: true
   },
   function(accessToken, refreshToken, profile, done) {
     User.findOrCreate({ twitchId: profile.id }, function (err, user) {
@@ -84,9 +85,8 @@ app.set("view engine", "ejs");
 // Middlewares
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(cookieSession({secret:"somesecrettokenhere"}));
+app.use(cookieSession({ secret: "somesecrettokenhere" }));
 app.use(passport.initialize());
-app.use(express.static("./public"));
 
 passport.use('twitch', new twitchStrategy({
     clientID: "098f6bcd4621d373cade4e832627b4f6",

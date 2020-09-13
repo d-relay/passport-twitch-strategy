@@ -15,8 +15,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - run: npm install
-      - run: npm build
+      - run: yarn install
+      - run: yarn build
 
   publish-npm:
     needs: build
@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: npm publish
+      - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
@@ -40,6 +40,6 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
-      - run: npm publish
+      - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

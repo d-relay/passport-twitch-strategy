@@ -1,27 +1,19 @@
 {
     "compilerOptions": {
-        "lib": [
-            "es5",
-            "es6"
-        ],
-        "target": "ES2015",
-        "module": "CommonJS",
+        "lib": [],
+        "target": "ES2018",
+        "module": "ESNext",
         "outDir": "dist",
-        "sourceMap": true,
         "esModuleInterop": true,
-        "moduleResolution": "node",
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "skipLibCheck": true,
+        "moduleResolution": "Node",
         "declaration": true,
-        "removeComments": true
+        "sourceMap": true
     },
     "include": [
-        "src/index.ts"
+        "src/index.ts",
+        "src/twitch-strategy.ts"
     ],
     "exclude": [
         "node_modules"
     ],
-    "rootDir": "src/*",
-    "outDir": "./dist",
 }

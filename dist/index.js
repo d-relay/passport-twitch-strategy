@@ -1,13 +1,2 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.OAuth2Strategy = exports.Strategy = void 0;
-const twitch_strategy_1 = require("./twitch-strategy");
-Object.defineProperty(exports, "Strategy", { enumerable: true, get: function () { return twitch_strategy_1.Strategy; } });
-const pkginfo_1 = __importDefault(require("pkginfo"));
-pkginfo_1.default(module, "version");
-const OAuth2Strategy = twitch_strategy_1.Strategy;
-exports.OAuth2Strategy = OAuth2Strategy;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var t=require("util"),e=require("passport-oauth2"),r=require("node-fetch"),o=require("pkginfo");function i(t){return t&&"object"==typeof t&&"default"in t?t:{default:t}}var a=i(t),u=i(e),n=i(r),h=i(o);function s(t,e){const r={...t,name:"twitch",authorizationURL:"https://id.twitch.tv/oauth2/authorize",tokenURL:"https://id.twitch.tv/oauth2/token"};this.clientID=t.clientID,u.default.call(this,r,e),this._oauth2.setAuthMethod("Bearer"),this._oauth2.useAuthorizationHeaderforGET(!0)}a.default.inherits(s,u.default),s.prototype.userProfile=function(t,e){return n.default("https://api.twitch.tv/helix/users",{method:"GET",headers:{"Client-ID":this.clientID,Accept:"application/vnd.twitchtv.v5+json",Authorization:"Bearer "+t}}).then(t=>t.ok?t.json():new u.default.InternalOAuthError("failed to fetch user profile")).then(t=>{const r=t.data[0];e(null,r)}).catch(t=>{e(t,null)})},s.prototype.authorizationParams=function(t){var e={force_verify:!1};return void 0!==t.forceVerify&&(e.force_verify=!!t.forceVerify),e},h.default(module,"version");const c=s;exports.OAuth2Strategy=c,exports.Strategy=s;
 //# sourceMappingURL=index.js.map

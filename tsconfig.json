@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "lib": [],
-        "target": "ES2018",
+        "target": "ES2015",
         "module": "ESNext",
         "outDir": "dist",
         "esModuleInterop": true,

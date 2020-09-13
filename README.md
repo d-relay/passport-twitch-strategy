@@ -27,7 +27,7 @@ accepts these credentials and calls `done` providing a user, as well as
 
 ```javascript
 var passport       = require("passport");
-var twitchStrategy = require("passport-twitch").Strategy;
+var twitchStrategy = require("passport-twitch-api-v5").Strategy;
 
 passport.use('twitch', new twitchStrategy({
     clientID: process.env.TWITCH_CLIENT_ID,
@@ -75,7 +75,7 @@ var bodyParser     = require("body-parser");
 var cookieParser   = require("cookie-parser");
 var cookieSession  = require("cookie-session");
 var passport       = require("passport");
-var twitchStrategy = require("passport-twitch").Strategy;
+var twitchStrategy = require("passport-twitch-api-v5").Strategy;
 
 var app = express();
 

@@ -1,6 +1,6 @@
 {
-  "name": "passport-twitch-api-v5",
-  "version": "1.1.0",
+  "name": "passport-twitch-strategy",
+  "version": "1.0.0",
   "main": "./dist/index.js",
   "description": "Twitch (OAuth) authentication strategies for Passport. v5",
   "scripts": {
@@ -20,10 +20,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/d-relay/passport-twitch"
+    "url": "https://github.com/d-relay/passport-twitch-strategy"
   },
   "bugs": {
-    "url": "http://github.com/d-relay/passport-twitch/issues"
+    "url": "http://github.com/d-relay/passport-twitch-strategy/issues"
   },
   "author": {
     "name": "Tymchenko",

@@ -54,6 +54,7 @@ export function Strategy(options: Options, verify: Function) {
     this._oauth2.setAuthMethod("Bearer");
     this._oauth2.useAuthorizationHeaderforGET(true);
 }
+export default Strategy;
 
 util.inherits(Strategy, OAuth2Strategy);
 

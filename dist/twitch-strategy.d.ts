@@ -39,4 +39,4 @@ interface Options {
  * @api public
  */
 export declare function Strategy(options: Options, verify: Function): void;
-export {};
+export default Strategy;

@@ -54,8 +54,6 @@ export function Strategy(options: Options, verify: Function) {
     this._oauth2.setAuthMethod("Bearer");
     this._oauth2.useAuthorizationHeaderforGET(true);
 }
-export default Strategy;
-
 util.inherits(Strategy, OAuth2Strategy);
 
 /**
@@ -72,7 +70,7 @@ util.inherits(Strategy, OAuth2Strategy);
  * @param {Function} done
  * @api protected
  */
-Strategy.prototype.userProfile = function (accessToken: string, done: Function): Promise<void> {
+Strategy.prototype.userProfile = function (accessToken: string, done: Function): Promise<Function> {
     return fetch('https://api.twitch.tv/helix/users', {
         method: 'GET',
         headers: {
@@ -82,12 +80,12 @@ Strategy.prototype.userProfile = function (accessToken: string, done: Function):
         }
     }).then(response => {
         if (!response.ok) return new OAuth2Strategy.InternalOAuthError("failed to fetch user profile");
-        else return response.json()
+        else return response.json();
     }).then(json => {
         const body = json.data[0];
-        done(null, body);
+        return done(null, body);
     }).catch(error => {
-        done(error, null);
+        return done(error, null);
     });
 }
 
@@ -107,3 +105,5 @@ Strategy.prototype.authorizationParams = function (options: { forceVerify: boole
     }
     return params;
 };
+
+export default Strategy;

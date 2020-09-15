@@ -1,5 +1,3 @@
-![Node.js Package](https://github.com/d-relay/passport-twitch/workflows/Node.js%20Package/badge.svg?event=release)
-
 Twitch is a trademark or registered trademark of Twitch Interactive, Inc. in the U.S. and/or other countries. "passport-twitch" is not operated by, sponsored by, or affiliated with Twitch Interactive, Inc. in any way.
 
 [Passport](http://passportjs.org/) strategies for authenticating with [Twitch](http://www.twitch.tv/)

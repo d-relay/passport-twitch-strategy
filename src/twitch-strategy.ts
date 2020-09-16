@@ -65,7 +65,7 @@ export class Strategy extends OAuth2Strategy {
      * @param {Function} done
      * @api protected
      */
-    userProfile(accessToken: string, done: (err?: Error | null, profile?: any) => void): Promise<void> {
+    userProfile(accessToken: string, done: (err?: Error | null, profile?: any) => void) {
         return fetch('https://api.twitch.tv/helix/users', {
             method: 'GET',
             headers: {

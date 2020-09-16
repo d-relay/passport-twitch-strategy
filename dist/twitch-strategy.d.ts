@@ -1,7 +1,4 @@
 import OAuth2Strategy from "passport-oauth2";
-interface Options extends OAuth2Strategy.StrategyOptions {
-    passReqToCallback: boolean;
-}
 export declare class Strategy extends OAuth2Strategy {
     private clientID;
     /**
@@ -34,11 +31,11 @@ export declare class Strategy extends OAuth2Strategy {
      *       }
      *     ));
      *
-     * @param {Object} options
-     * @param {OAuth2Strategy.VerifyFunctionWithRequest} verify
+     * @param {OAuth2Strategy.StrategyOptionsBase} options
+     * @param {OAuth2Strategy.VerifyFunction | OAuth2Strategy.VerifyFunctionWithRequest} verify
      * @api public
      */
-    constructor(options: Options, verify: OAuth2Strategy.VerifyFunctionWithRequest);
+    constructor(options: OAuth2Strategy._StrategyOptionsBase, verify: OAuth2Strategy.VerifyFunction | OAuth2Strategy.VerifyFunctionWithRequest);
     /**
      * Retrieve user profile from Twitch.
      * This function constructs a normalized profile, with the following properties:

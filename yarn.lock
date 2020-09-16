@@ -44,10 +44,49 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
+"@types/body-parser@*":
+  version "1.19.0"
+  resolved "https://npm.pkg.github.com/download/@types/body-parser/1.19.0/b275a4bf36cfc876cbac88b4a21178b995326e1e1817e65df89cd8d7cfce9c54#0685b3c47eb3006ffed117cdd55164b61f80538f"
+  integrity sha512-W98JrE0j2K78swW4ukqMleo8R7h/pFETjM2DQ90MF6XK2i4LO4W3gQ71Lt4w3bfm2EvVSyWHplECvB5sK22yFQ==
+  dependencies:
+    "@types/connect" "*"
+    "@types/node" "*"
+
+"@types/connect@*":
+  version "3.4.33"
+  resolved "https://npm.pkg.github.com/download/@types/connect/3.4.33/7b4f2a0c7d9f4c419c140badce7b22898b6351c40cc27d848c7eb3a32d34fe7e#68e251dc3f3fa169227192ffb20a3b06450c638b"
+  integrity sha512-7GfYiBafanhcju7PF33FbPpFEzYPPWIPlCD/S7QVY8UDcSG+lDZg+dcz0EY686elqGracJNtRO4k5CddTNk47w==
+  dependencies:
+    "@types/node" "*"
+
 "@types/estree@0.0.39":
   version "0.0.39"
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.39.tgz#e177e699ee1b8c22d23174caaa7422644389509f"
   integrity sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==
+
+"@types/express-serve-static-core@*":
+  version "4.17.12"
+  resolved "https://npm.pkg.github.com/download/@types/express-serve-static-core/4.17.12/3e5b9f737921e01f4fec78c01b0faa7488f98c22632ccc45c02c52676f96d22e#9a487da757425e4f267e7d1c5720226af7f89591"
+  integrity sha512-EaEdY+Dty1jEU7U6J4CUWwxL+hyEGMkO5jan5gplfegUgCUsIUWqXxqw47uGjimeT4Qgkz/XUfwoau08+fgvKA==
+  dependencies:
+    "@types/node" "*"
+    "@types/qs" "*"
+    "@types/range-parser" "*"
+
+"@types/express@*":
+  version "4.17.8"
+  resolved "https://npm.pkg.github.com/download/@types/express/4.17.8/37e9c24153e4a87adbfd64c00defc09546bfe42ca9670df806173f3ffdd8079b#3df4293293317e61c60137d273a2e96cd8d5f27a"
+  integrity sha512-wLhcKh3PMlyA2cNAB9sjM1BntnhPMiM0JOBwPBqttjHev2428MLEB4AYVN+d8s2iyCVZac+o41Pflm/ZH5vLXQ==
+  dependencies:
+    "@types/body-parser" "*"
+    "@types/express-serve-static-core" "*"
+    "@types/qs" "*"
+    "@types/serve-static" "*"
+
+"@types/mime@*":
+  version "2.0.3"
+  resolved "https://npm.pkg.github.com/download/@types/mime/2.0.3/8225cefbd26fe0bbb4bf74ffa8daf4e606341a2c6327a7947260afaf8424efa8#c893b73721db73699943bfc3653b1deb7faa4a3a"
+  integrity sha512-Jus9s4CDbqwocc5pOAnh8ShfrnMcPHuJYzVcSUU7lrh8Ni5HuIqX3oilL86p3dlTrk0LzHRCgA/GQ7uNCw6l2Q==
 
 "@types/node-fetch@^2.5.7":
   version "2.5.7"
@@ -62,12 +101,53 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.10.1.tgz#cc323bad8e8a533d4822f45ce4e5326f36e42177"
   integrity sha512-aYNbO+FZ/3KGeQCEkNhHFRIzBOUgc7QvcVNKXbfnhDkSfwUv91JsQQa10rDgKSTSLkXZ1UIyPe4FJJNVgw1xWQ==
 
+"@types/oauth@*":
+  version "0.9.1"
+  resolved "https://npm.pkg.github.com/download/@types/oauth/0.9.1/7d6d58bf0dcc841b870c1b4b21c42b061f17d0760fd1039e2570b42147227895#11d410624db8694391bbcbeb93debc1021f6425d"
+  integrity sha512-AryEuk64KlffDD3Zfk7S6j6ZYwxxeixHztrJfL2lo4o+8q8DwP4WO9eL7KkfobSkg8mWEokak0yqoqqHY2oaew==
+  dependencies:
+    "@types/node" "*"
+
+"@types/passport-oauth2@^1.4.9":
+  version "1.4.9"
+  resolved "https://npm.pkg.github.com/download/@types/passport-oauth2/1.4.9/474cbc068ef059f72815c8226118159214987e5b30d999792225a702b740f35d#134007c4b505a82548c9cb19094c5baeb2205c92"
+  integrity sha512-QP0q+NVQOaIu2r0e10QWkiUA0Ya5mOBHRJN0UrI+LolMLOP1/VN4EVIpJ3xVwFo+xqNFRoFvFwJhBvKnk7kpUA==
+  dependencies:
+    "@types/express" "*"
+    "@types/oauth" "*"
+    "@types/passport" "*"
+
+"@types/passport@*":
+  version "1.0.4"
+  resolved "https://npm.pkg.github.com/download/@types/passport/1.0.4/b2718b760170666abb36bec90bfbb4058da3b8ffd7306e6a519962c9dbeaa378#1b35c4e197560d3974fa5f71711b6e9cce0711f0"
+  integrity sha512-h5OfAbfBBYSzjeU0GTuuqYEk9McTgWeGQql9g3gUw2/NNCfD7VgExVRYJVVeU13Twn202Mvk9BT0bUrl30sEgA==
+  dependencies:
+    "@types/express" "*"
+
+"@types/qs@*":
+  version "6.9.4"
+  resolved "https://npm.pkg.github.com/download/@types/qs/6.9.4/b4a8b5d64fed0c9fec40326c5663a422b5a72e8cdd1a5decfa66a47929230406#a59e851c1ba16c0513ea123830dd639a0a15cb6a"
+  integrity sha512-+wYo+L6ZF6BMoEjtf8zB2esQsqdV6WsjRK/GP9WOgLPrq87PbNWgIxS76dS5uvl/QXtHGakZmwTznIfcPXcKlQ==
+
+"@types/range-parser@*":
+  version "1.2.3"
+  resolved "https://npm.pkg.github.com/download/@types/range-parser/1.2.3/b3cb4a67c4e60b3fbe7d9bb594fefe7ca7aeacf3d357cf00015e511dded09028#09f5ae3caa029e6a82b505ffcd431b2f915137bf"
+  integrity sha512-lh8zIu5vrHCXIJKJveanY0MUDZcYS6Myja6xb40gXXBkVgBKKiZQSxIrdaQB+ChhRkJJAQGQZwHYpOoiTjAaxA==
+
 "@types/resolve@1.17.1":
   version "1.17.1"
   resolved "https://registry.yarnpkg.com/@types/resolve/-/resolve-1.17.1.tgz#3afd6ad8967c77e4376c598a82ddd58f46ec45d6"
   integrity sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw==
   dependencies:
     "@types/node" "*"
+
+"@types/serve-static@*":
+  version "1.13.5"
+  resolved "https://npm.pkg.github.com/download/@types/serve-static/1.13.5/775eb432c6acf48de95206578cc3c4e00338c7f25f4751e3cc35a86a03ec3a36#3d25d941a18415d3ab092def846e135a08bbcf53"
+  integrity sha512-6M64P58N+OXjU432WoLLBQxbA0LRGBCRm7aAGQJ+SMC1IMl0dgRVi9EFfoDcS2a7Xogygk/eGN94CfwU9UF7UQ==
+  dependencies:
+    "@types/express-serve-static-core" "*"
+    "@types/mime" "*"
 
 ansi-styles@^3.2.1:
   version "3.2.1"

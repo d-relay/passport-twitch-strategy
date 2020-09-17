@@ -4,7 +4,8 @@
   "main": "./dist/index.js",
   "description": "Twitch (OAuth) authentication strategies for Passport. v5",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "test": "ts-node test/index.ts"
   },
   "keywords": [
     "passport",
@@ -51,7 +52,8 @@
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.27.2",
     "tslib": "^2.0.1",
-    "typescript": "^4.0.2"
+    "typescript": "^4.0.2",
+    "ts-node": "^9.0.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"

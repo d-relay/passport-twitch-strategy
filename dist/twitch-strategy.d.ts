@@ -1,12 +1,13 @@
 import OAuth2Strategy from "passport-oauth2";
-declare type OptionType = OAuth2Strategy._StrategyOptionsBase & {
-    name: 'twitch';
-    authorizationURL: 'https://id.twitch.tv/oauth2/authorize';
-    tokenURL: 'https://id.twitch.tv/oauth2/token';
-};
-declare type VerifyType = OAuth2Strategy.VerifyFunction | OAuth2Strategy.VerifyFunctionWithRequest;
+interface Options {
+    clientID: string;
+    clientSecret: string;
+    callbackURL: string;
+    scope: string;
+}
 export declare class Strategy extends OAuth2Strategy {
     private clientID;
+    name: string;
     /**
      * `Strategy` constructor.
      *
@@ -37,11 +38,10 @@ export declare class Strategy extends OAuth2Strategy {
      *       }
      *     ));
      *
-     * @param {OptionType} options
+     * @param {Options} options
      * @param {VerifyType} verify
-     * @api public
      */
-    constructor(options: OptionType, verify: VerifyType);
+    constructor(options: Options, verify: OAuth2Strategy.VerifyFunction | OAuth2Strategy.VerifyFunctionWithRequest);
     /**
      * Retrieve user profile from Twitch.
      * This function constructs a normalized profile, with the following properties:

@@ -6,12 +6,6 @@ declare module 'passport-oauth2' {
 
     class OAuth2Strategy extends Strategy {
         name: string;
-
-        /**
-         *   NOTE: The _oauth2 property is considered "protected".  Subclasses are
-         *         allowed to use it when making protected resource requests to retrieve
-         *         the user profile.
-         */
         protected _oauth2: OAuth2;
 
         constructor(options: OAuth2Strategy._StrategyOptionsBase, verify: OAuth2Strategy.VerifyFunction | OAuth2Strategy.VerifyFunctionWithRequest);
@@ -44,10 +38,10 @@ declare module 'passport-oauth2' {
 
         type VerifyCallback = (err?: Error | null, user?: object, info?: object) => void;
 
-        type VerifyFunction =
+        export type VerifyFunction =
             ((accessToken: string, refreshToken: string, profile: any, verified: VerifyCallback) => void) |
             ((accessToken: string, refreshToken: string, results: any, profile: any, verified: VerifyCallback) => void);
-        type VerifyFunctionWithRequest =
+        export type VerifyFunctionWithRequest =
             ((req: Request, accessToken: string, refreshToken: string, profile: any, verified: VerifyCallback) => void) |
             ((req: Request, accessToken: string, refreshToken: string, results: any, profile: any, verified: VerifyCallback) => void);
 

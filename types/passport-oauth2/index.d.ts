@@ -51,7 +51,7 @@ declare module 'passport-oauth2' {
             ((req: Request, accessToken: string, refreshToken: string, profile: any, verified: VerifyCallback) => void) |
             ((req: Request, accessToken: string, refreshToken: string, results: any, profile: any, verified: VerifyCallback) => void);
 
-        interface _StrategyOptionsBase {
+        export interface _StrategyOptionsBase {
             authorizationURL: string;
             tokenURL: string;
             clientID: string;

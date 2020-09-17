@@ -1,6 +1,16 @@
 import fetch from "node-fetch";
 import OAuth2Strategy from "passport-oauth2";
 
+type OptionType = OAuth2Strategy._StrategyOptionsBase & {
+    name: 'twitch',
+    authorizationURL: 'https://id.twitch.tv/oauth2/authorize',
+    tokenURL: 'https://id.twitch.tv/oauth2/token'
+};
+
+type VerifyType = OAuth2Strategy.VerifyFunction | OAuth2Strategy.VerifyFunctionWithRequest;
+
+
+
 export class Strategy extends OAuth2Strategy {
     private clientID: string;
     /**
@@ -33,18 +43,12 @@ export class Strategy extends OAuth2Strategy {
      *       }
      *     ));
      *
-     * @param {OAuth2Strategy.StrategyOptionsBase} options
-     * @param {OAuth2Strategy.VerifyFunction | OAuth2Strategy.VerifyFunctionWithRequest} verify
+     * @param {OptionType} options
+     * @param {VerifyType} verify
      * @api public
      */
-    constructor(options: OAuth2Strategy._StrategyOptionsBase, verify: OAuth2Strategy.VerifyFunction | OAuth2Strategy.VerifyFunctionWithRequest) {
-        const params = {
-            ...options,
-            name: 'twitch',
-            authorizationURL: 'https://id.twitch.tv/oauth2/authorize',
-            tokenURL: 'https://id.twitch.tv/oauth2/token'
-        }
-        super(params, verify);
+    constructor(options: OptionType, verify: VerifyType) {
+        super(options, verify);
         this.clientID = options.clientID;
         this._oauth2.setAuthMethod('Bearer');
         this._oauth2.useAuthorizationHeaderforGET(true);

@@ -1,12 +1,16 @@
 import fetch from "node-fetch";
 import OAuth2Strategy from "passport-oauth2";
 
-interface Options extends OAuth2Strategy.StrategyOptions {
-    passReqToCallback: boolean;
+interface Options {
+    clientID: string;
+    clientSecret: string;
+    callbackURL: string;
+    scope: string;
 }
 
 export class Strategy extends OAuth2Strategy {
     private clientID: string;
+    public name: string;
     /**
      * `Strategy` constructor.
      *
@@ -37,18 +41,17 @@ export class Strategy extends OAuth2Strategy {
      *       }
      *     ));
      *
-     * @param {Object} options
-     * @param {OAuth2Strategy.VerifyFunctionWithRequest} verify
-     * @api public
+     * @param {Options} options
+     * @param {Function} verify
      */
-    constructor(options: Options, verify: OAuth2Strategy.VerifyFunctionWithRequest) {
-        const params = {
+    constructor(options: Options, verify: Function) {
+        const params: OAuth2Strategy._StrategyOptionsBase = {
             ...options,
-            name: 'twitch',
             authorizationURL: 'https://id.twitch.tv/oauth2/authorize',
             tokenURL: 'https://id.twitch.tv/oauth2/token'
         }
-        super(params, verify);
+        super(params, verify as OAuth2Strategy.VerifyFunction | OAuth2Strategy.VerifyFunctionWithRequest);
+        this.name = 'twitch';
         this.clientID = options.clientID;
         this._oauth2.setAuthMethod('Bearer');
         this._oauth2.useAuthorizationHeaderforGET(true);
@@ -65,7 +68,7 @@ export class Strategy extends OAuth2Strategy {
      * @param {Function} done
      * @api protected
      */
-    userProfile(accessToken: string, done: (err?: Error | null, profile?: any) => void): Promise<void> {
+    userProfile(accessToken: string, done: (err?: Error | null, profile?: any) => void) {
         return fetch('https://api.twitch.tv/helix/users', {
             method: 'GET',
             headers: {
@@ -86,13 +89,13 @@ export class Strategy extends OAuth2Strategy {
 
     /**
      * Return extra parameters to be included in the authorization request.
-     * @param {Object} options
+     * @param {{ forceVerify?: boolean }} options
      * @return {Object}
      * @api protected
      */
     authorizationParams(options: { forceVerify?: boolean }): object {
         return {
-            force_verify: (typeof options.forceVerify === 'boolean') ? false : options.forceVerify
+            force_verify: (typeof options.forceVerify !== 'boolean') ? false : options.forceVerify
         };
     }
 }

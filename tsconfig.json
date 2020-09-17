@@ -7,7 +7,13 @@
         "esModuleInterop": true,
         "moduleResolution": "Node",
         "declaration": true,
-        "sourceMap": true
+        "sourceMap": true,
+        "types": [
+            "passport-oauth2"
+        ],
+        "typeRoots": [
+            "types"
+        ],
     },
     "include": [
         "src/index.ts",

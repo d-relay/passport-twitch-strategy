@@ -1,6 +1,6 @@
 {
   "name": "passport-twitch-strategy",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "./dist/index.js",
   "description": "Twitch (OAuth) authentication strategies for Passport. v5",
   "scripts": {
@@ -56,6 +56,6 @@
     "ts-node": "^9.0.0"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@d-relay"
+    "registry": "https://registry.npmjs.org"
   }
 }

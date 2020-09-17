@@ -1,3 +1,4 @@
+import { Request } from "express";
 import OAuth2Strategy from "passport-oauth2";
 interface Options {
     clientID: string;
@@ -54,6 +55,7 @@ export declare class Strategy extends OAuth2Strategy {
      * @api protected
      */
     userProfile(accessToken: string, done: (err?: Error | null, profile?: any) => void): Promise<void>;
+    authenticate(req: Request, args?: any): void;
     /**
      * Return extra parameters to be included in the authorization request.
      * @param {{ forceVerify?: boolean }} options

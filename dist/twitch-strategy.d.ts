@@ -39,9 +39,9 @@ export declare class Strategy extends OAuth2Strategy {
      *     ));
      *
      * @param {Options} options
-     * @param {VerifyType} verify
+     * @param {Function} verify
      */
-    constructor(options: Options, verify: OAuth2Strategy.VerifyFunction | OAuth2Strategy.VerifyFunctionWithRequest);
+    constructor(options: Options, verify: Function);
     /**
      * Retrieve user profile from Twitch.
      * This function constructs a normalized profile, with the following properties:
@@ -56,7 +56,7 @@ export declare class Strategy extends OAuth2Strategy {
     userProfile(accessToken: string, done: (err?: Error | null, profile?: any) => void): Promise<void>;
     /**
      * Return extra parameters to be included in the authorization request.
-     * @param {Object} options
+     * @param {{ forceVerify?: boolean }} options
      * @return {Object}
      * @api protected
      */

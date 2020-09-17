@@ -42,15 +42,15 @@ export class Strategy extends OAuth2Strategy {
      *     ));
      *
      * @param {Options} options
-     * @param {VerifyType} verify
+     * @param {Function} verify
      */
-    constructor(options: Options, verify: OAuth2Strategy.VerifyFunction | OAuth2Strategy.VerifyFunctionWithRequest) {
+    constructor(options: Options, verify: Function) {
         const params: OAuth2Strategy._StrategyOptionsBase = {
             ...options,
             authorizationURL: 'https://id.twitch.tv/oauth2/authorize',
             tokenURL: 'https://id.twitch.tv/oauth2/token'
         }
-        super(params, verify);
+        super(params, verify as OAuth2Strategy.VerifyFunction | OAuth2Strategy.VerifyFunctionWithRequest);
         this.name = 'twitch';
         this.clientID = options.clientID;
         this._oauth2.setAuthMethod('Bearer');
@@ -89,13 +89,13 @@ export class Strategy extends OAuth2Strategy {
 
     /**
      * Return extra parameters to be included in the authorization request.
-     * @param {Object} options
+     * @param {{ forceVerify?: boolean }} options
      * @return {Object}
      * @api protected
      */
     authorizationParams(options: { forceVerify?: boolean }): object {
         return {
-            force_verify: (typeof options.forceVerify === 'boolean') ? false : options.forceVerify
+            force_verify: (typeof options.forceVerify !== 'boolean') ? false : options.forceVerify
         };
     }
 }

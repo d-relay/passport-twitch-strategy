@@ -125,7 +125,7 @@ app.listen(3000);
 
 The MIT License (MIT)
 
-Copyright (c) 2015 x_ror
+Copyright (c) 2020 x_ror
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -63,7 +63,7 @@ export class Strategy extends OAuth2Strategy {
      * This function constructs a normalized profile, with the following properties:
      *   - `provider`         always set to `twitch`
      *   - `id`
-     *   - `username`
+     *   - `login`
      *   - `displayName`
      * @param {String} accessToken
      * @param {Function} done
@@ -82,6 +82,11 @@ export class Strategy extends OAuth2Strategy {
             else return response.json();
         }).then(json => {
             const body = json.data[0];
+            body.provider = 'twitch';
+            if (body.display_name) {
+                body.displayName = body.display_name;
+                delete body.display_name;
+            }
             return done(null, body);
         }).catch(error => {
             return done(error, null);

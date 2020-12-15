@@ -1,8 +1,8 @@
 {
   "name": "passport-twitch-strategy",
   "version": "2.1.1",
-  "exports": "./dist/modern.js",
-  "main": "./dist/index.js",
+  "main": "./dist/index.cjs",
+  
   "description": "Twitch (OAuth) authentication strategies for Passport. v5",
   "scripts": {
     "prepublishOnly": "rollup -c"

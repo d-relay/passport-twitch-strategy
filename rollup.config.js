@@ -10,12 +10,7 @@ export default {
             file: pkg.main,
             format: 'cjs',
             sourcemap: true
-        },
-        {
-            file: pkg.exports,
-            format: 'es',
-            sourcemap: true
-        },
+        }
     ],
     external: [
         ...Object.keys(pkg.dependencies || {}),

@@ -1,4 +1,3 @@
-import { Request } from "express";
 import fetch from "node-fetch";
 import OAuth2Strategy from "passport-oauth2";
 
@@ -93,7 +92,7 @@ export class Strategy extends OAuth2Strategy {
         });
     }
 
-    authenticate(req: Request, args?: any): void {
+    authenticate(req: any, args?: any): void {
         super.authenticate(req, args);
     }
 
